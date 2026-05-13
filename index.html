@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grovix Studio | Architecting Domination</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Three.js for 3D background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <canvas id="bg-canvas"></canvas>
+
+    <header id="main-header">
+        <a href="#" class="logo">GROVIX <span>STUDIO</span></a>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#websites">Websites</a></li>
+                <li><a href="#stats">Domination</a></li>
+                <li><a href="#vault">The Vault</a></li>
+                <li><a href="#cinema">Cinema</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 class="reveal">Architecting<br><span>Domination</span></h1>
+            <p class="reveal">We don't just market. We build infrastructure for market leaders. Scalable, predictable, and aggressive growth.</p>
+            <div class="reveal">
+                <a href="#vault" class="btn-primary">Enter The Vault</a>
+            </div>
+        </section>
+
+        <!-- Vision Section -->
+        <section id="vision" class="vision">
+            <div class="glass" style="padding: 100px; text-align: center;">
+                <h2 class="section-title">The <span>Vision</span></h2>
+                <p style="font-size: 1.8rem; line-height: 1.4; color: #fff;">"In a world of noise, we create silence. The silence of your competitors as you dominate the market."</p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2 class="section-title">Growth <span>Stack</span></h2>
+            <div class="services-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="service-card glass glass-hover">
+                    <div>
+                        <div class="icon">🚀</div>
+                        <h3>Performance<br>Marketing</h3>
+                    </div>
+                    <p>Meta, Google, and TikTok ads engineered for maximum ROAS. We don't spend; we invest. Our strategies are built on deep data analysis and aggressive scaling tactics.</p>
+                </div>
+                <div class="service-card glass glass-hover">
+                    <div>
+                        <div class="icon">🎨</div>
+                        <h3>Brand<br>Architecture</h3>
+                    </div>
+                    <p>High-end visual identity and web experiences that command authority. We build brands that people don't just follow—they worship. Design as a weapon for dominance.</p>
+                </div>
+                <div class="service-card glass glass-hover">
+                    <div>
+                        <div class="icon">⚡</div>
+                        <h3>Sales<br>Engines</h3>
+                    </div>
+                    <p>Automated CRM systems and cold outreach that fill your calendar while you sleep. We handle the prospecting so your team focuses exclusively on closing.</p>
+                </div>
+                <div class="service-card glass glass-hover">
+                    <div>
+                        <div class="icon">📱</div>
+                        <h3>Content<br>Domination</h3>
+                    </div>
+                    <p>Short-form cinematic content designed to go viral and build massive brand equity. We turn your brand into a media powerhouse.</p>
+                </div>
+                <div class="service-card glass glass-hover">
+                    <div>
+                        <div class="icon">📈</div>
+                        <h3>Conversion<br>Optimization</h3>
+                    </div>
+                    <p>Landing page engineering and funnel optimization that turns traffic into revenue. We squeeze every drop of profit from your traffic.</p>
+                </div>
+                <div class="service-card glass glass-hover">
+                    <div>
+                        <div class="icon">📧</div>
+                        <h3>Cold Email<br>Systems</h3>
+                    </div>
+                    <p>Custom outreach infrastructure with 99% deliverability. Reach decision-makers directly and predictably with AI-personalized sequences.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process">
+            <h2 class="section-title">The <span>Blueprint</span></h2>
+            <div class="services-grid">
+                <div class="glass" style="padding: 40px;">
+                    <h3 style="color: var(--accent-cyan); margin-bottom: 15px;">01. Audit</h3>
+                    <p>We dismantle your current systems to find leaks and opportunities for exponential growth.</p>
+                </div>
+                <div class="glass" style="padding: 40px;">
+                    <h3 style="color: var(--accent-cyan); margin-bottom: 15px;">02. Architect</h3>
+                    <p>We build your custom growth stack, from creative assets to automated sales funnels.</p>
+                </div>
+                <div class="glass" style="padding: 40px;">
+                    <h3 style="color: var(--accent-cyan); margin-bottom: 15px;">03. Dominate</h3>
+                    <p>We launch, optimize, and scale. We don't stop until you are the undisputed market leader.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Web Architecture Section -->
+        <section id="websites">
+            <h2 class="section-title">Web <span>Architecture</span></h2>
+            <div class="web-featured-grid">
+                <div class="portfolio-item glass web-main">
+                    <img src="grovix_thumb.png" alt="Grovix Studio">
+                    <div class="item-overlay">
+                        <h3>Grovix Studio</h3>
+                        <p>Our flagship high-conversion agency experience. Engineered for speed, authority, and lead generation.</p>
+                        <a href="https://grovixstudio-dusky.vercel.app/" target="_blank" class="btn-primary" style="padding: 15px 30px; margin-top: 20px;">Visit Case Study</a>
+                    </div>
+                </div>
+                <div class="web-side">
+                    <div class="portfolio-item glass">
+                        <img src="3squares_thumb.png" alt="3Squares">
+                        <div class="item-overlay">
+                            <h3>3Squares</h3>
+                            <p>Corporate interior design authority in the UAE.</p>
+                            <a href="https://3squares.ae" target="_blank" class="btn-primary" style="padding: 10px 20px; font-size: 0.7rem; margin-top: 10px;">Visit Site</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item glass">
+                        <img src="cea_thumb.png" alt="CEA Trading">
+                        <div class="item-overlay">
+                            <h3>CEA Trading</h3>
+                            <p>Premium e-commerce for natural home fragrances.</p>
+                            <a href="https://ceatrading.ae" target="_blank" class="btn-primary" style="padding: 10px 20px; font-size: 0.7rem; margin-top: 10px;">Visit Site</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Domination Stats (Dashboards) -->
+        <section id="stats">
+            <h2 class="section-title">The Proof of <span>Domination</span></h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item glass">
+                    <img src="Swissbeauty 1 Meta Dashbaord.jpeg" alt="Meta">
+                    <div class="item-overlay">
+                        <h3>Swiss Beauty</h3>
+                        <p>5.2x ROAS Engineered</p>
+                    </div>
+                </div>
+                <div class="portfolio-item glass">
+                    <img src="Al Aras 1 Shopify Dash.jpeg" alt="Shopify">
+                    <div class="item-overlay">
+                        <h3>Al Aras</h3>
+                        <p>300% Scale in 90 Days</p>
+                    </div>
+                </div>
+                <div class="portfolio-item glass">
+                    <img src="Carpet planet 1 Shopify Dash.jpeg" alt="Shopify">
+                    <div class="item-overlay">
+                        <h3>Carpet Planet</h3>
+                        <p>Market Leaders in UAE</p>
+                    </div>
+                </div>
+                <div class="portfolio-item glass">
+                    <img src="Blair 1 Shopify dash.jpeg" alt="Shopify">
+                    <div class="item-overlay">
+                        <h3>Blair</h3>
+                        <p>Growth Optimization</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Vault (Full Gallery) -->
+        <section id="vault" class="gallery-section">
+            <h2 class="section-title">The <span>Vault</span></h2>
+            <div class="masonry-grid">
+                <div class="masonry-item glass">
+                    <img src="Grovix portfolio/beans to bars_20260418_163253_0000.jpg" alt="Creative">
+                </div>
+                <div class="masonry-item glass">
+                    <img src="Grovix portfolio/5_20260420_125302_0000.jpg" alt="Creative">
+                </div>
+                <div class="masonry-item glass">
+                    <img src="Grovix portfolio/6_20260420_125302_0001.jpg" alt="Creative">
+                </div>
+                <div class="masonry-item glass">
+                    <img src="Grovix portfolio/7_20260420_125302_0002.jpg" alt="Creative">
+                </div>
+                <div class="masonry-item glass">
+                    <img src="Grovix portfolio/8_20260420_125302_0003.jpg" alt="Creative">
+                </div>
+                <div class="masonry-item glass">
+                    <img src="Grovix portfolio/13_20260420_125406_0004.jpg" alt="Creative">
+                </div>
+                <div class="masonry-item glass">
+                    <img src="Grovix portfolio/18_20260420_125406_0005.jpg" alt="Creative">
+                </div>
+                <div class="masonry-item glass">
+                    <img src="Grovix portfolio/24_20260420_125406_0006.jpg" alt="Creative">
+                </div>
+                <div class="masonry-item glass">
+                    <img src="Grovix portfolio/29_20260420_125406_0007.jpg" alt="Creative">
+                </div>
+                <div class="masonry-item glass">
+                    <img src="Grovix portfolio/Midnight Musk Arrival_20260420_125439_0001.jpg" alt="Creative">
+                </div>
+                <div class="masonry-item glass">
+                    <img src="Grovix portfolio/Midnight Musk Arrival_20260420_125513_0000.png" alt="Creative">
+                </div>
+            </div>
+        </section>
+
+        <!-- Cinema (Videos) -->
+        <section id="cinema">
+            <h2 class="section-title">Grovix <span>Cinema</span></h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item glass">
+                    <video src="Grovix portfolio/REEL DESIGN.mp4" loop muted playsinline></video>
+                    <div class="item-overlay">
+                        <h3>Reel Design</h3>
+                        <button class="btn-primary" style="padding: 10px 20px; font-size: 0.7rem;">Play</button>
+                    </div>
+                </div>
+                <div class="portfolio-item glass">
+                    <video src="Grovix portfolio/reel comming soon.mp4" loop muted playsinline></video>
+                    <div class="item-overlay">
+                        <h3>Coming Soon</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item glass">
+                    <video src="Grovix portfolio/download_20260420_125604_0000.mp4" loop muted playsinline></video>
+                    <div class="item-overlay">
+                        <h3>Motion Story</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item glass">
+                    <video src="Grovix portfolio/IMG_6492.MP4" loop muted playsinline></video>
+                    <div class="item-overlay">
+                        <h3>Behind The Scenes</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="glass" style="padding: 80px; text-align: center;">
+                <h2 class="section-title">Ready for <span>War?</span></h2>
+                <p style="margin-bottom: 50px;">Scale your business to the heights it deserves. Limited slots available for partners.</p>
+                <a href="mailto:hello@grovixstudio.com" class="btn-primary">Apply Now</a>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 60px; text-align: center; border-top: 1px solid var(--glass-border);">
+        <div class="logo" style="margin-bottom: 20px;">GROVIX <span>STUDIO</span></div>
+        <p style="color: var(--text-dim);">&copy; 2024 GROVIX STUDIO. BORN TO DOMINATE.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
