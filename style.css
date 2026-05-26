@@ -21,11 +21,45 @@
 }
 
 body {
-    background-color: var(--bg-color);
+    background: radial-gradient(circle at 50% 50%, #0d011c 0%, #030303 100%);
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     line-height: 1.6;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 20%;
+    left: 10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 242, 255, 0.08) 0%, transparent 70%);
+    z-index: -2;
+    pointer-events: none;
+    filter: blur(80px);
+    animation: floatGlow 15s infinite alternate ease-in-out;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    bottom: 20%;
+    right: 10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(188, 0, 255, 0.06) 0%, transparent 70%);
+    z-index: -2;
+    pointer-events: none;
+    filter: blur(100px);
+    animation: floatGlow 20s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes floatGlow {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(60px, 40px) scale(1.15); }
 }
 
 h1, h2, h3, .logo {
@@ -69,12 +103,12 @@ h1, h2, h3, .logo {
 
 /* --- Glassmorphism Utilities --- */
 .glass {
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
+    background: rgba(10, 10, 10, 0.45);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 24px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.6);
 }
 
 .glass-hover {
@@ -351,10 +385,629 @@ section {
 }
 
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.8rem; }
-    .portfolio-grid { grid-template-columns: 1fr; }
-    .portfolio-item { height: 400px; }
-    .masonry-grid { columns: 1; }
-    header { padding: 20px; }
-    nav { display: none; }
+    :root {
+        --section-padding: 40px 20px;
+    }
+
+    body {
+        cursor: auto !important; /* Allow default cursor on mobile */
+    }
+
+    .cursor, .cursor-follower {
+        display: none !important;
+    }
+
+    header {
+        padding: 15px 20px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    nav {
+        display: none;
+    }
+
+    section {
+        padding: var(--section-padding) !important;
+    }
+
+    .hero {
+        height: auto;
+        padding: 120px 20px 60px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+
+    .glass {
+        padding: 30px !important;
+        border-radius: 16px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .portfolio-item {
+        height: 350px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-card {
+        padding: 40px 25px;
+        min-height: auto;
+    }
+
+    .service-card .icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+        font-size: 1.8rem;
+    }
+
+    .web-featured-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .web-main {
+        height: 400px;
+    }
+
+    .web-side {
+        gap: 20px;
+    }
+
+    .web-side .portfolio-item {
+        height: 300px;
+    }
+
+    .masonry-grid {
+        columns: 1;
+        column-gap: 0;
+    }
+
+    .masonry-item {
+        margin-bottom: 20px;
+    }
+
+    footer {
+        padding: 40px 20px;
+    }
+
+    .btn-primary {
+        padding: 15px 30px;
+        font-size: 0.8rem;
+    }
 }
+
+/* ==========================================================================
+   Lenis Smooth Scrolling Configuration
+   ========================================================================== */
+html.lenis, html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   About Section (Vision & Why Choose Us)
+   ========================================================================== */
+.about-section {
+    padding: 120px 10%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.vision-block, .why-choose-block {
+    padding: 80px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.vision-block::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(188, 0, 255, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.why-choose-block::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 242, 255, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.vision-quote {
+    font-size: 2.2rem;
+    line-height: 1.5;
+    font-weight: 300;
+    color: #fff;
+    font-style: italic;
+    text-align: center;
+}
+
+.why-choose-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.why-choose-lead {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.3;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.why-choose-lead span {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+}
+
+.why-choose-body {
+    font-size: 1.25rem;
+    color: var(--text-dim);
+    line-height: 1.8;
+    max-width: 1000px;
+}
+
+/* Text Scroll-Scrub Glow Utilities */
+.select-glow span {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.select-glow span.highlighted {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.why-choose-lead.select-glow span.highlighted {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 15px rgba(0, 242, 255, 0.8);
+}
+
+/* ==========================================================================
+   Horizontal Scroll Section (Detailed Services)
+   ========================================================================== */
+.services-pin-container {
+    position: relative;
+    padding: 0 !important;
+    width: 100%;
+    height: 100vh;
+    overflow: clip;
+}
+
+.horizontal-scroll-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 100vh;
+    width: max-content;
+    will-change: transform;
+}
+
+.service-slide {
+    flex: 0 0 100vw;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 5%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.title-slide {
+    background: linear-gradient(135deg, #050505 0%, #0c0014 100%);
+    justify-content: flex-start;
+    padding-left: 10%;
+}
+
+.service-slide-content {
+    max-width: 700px;
+    text-align: left;
+}
+
+.slide-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    color: var(--accent-purple);
+    text-transform: uppercase;
+    font-weight: 800;
+    display: inline-block;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(188, 0, 255, 0.5);
+}
+
+.slide-title {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #fff 40%, var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.slide-title span {
+    text-shadow: 0 0 30px rgba(188, 0, 255, 0.4);
+}
+
+.slide-desc {
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.scroll-indicator {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.indicator-arrow {
+    font-size: 1.5rem;
+    animation: bounceRight 2s infinite;
+    color: var(--accent-cyan);
+}
+
+@keyframes bounceRight {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+}
+
+/* ---- Service Card: Square Image + Content Layout ---- */
+.service-card-inner {
+    width: 94vw;
+    max-width: 1500px;
+    height: 80vh;
+    max-height: 720px;
+    min-height: 480px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+    box-sizing: border-box;
+    position: relative;
+    border-color: rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.service-card-inner:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 60px rgba(0, 242, 255, 0.12);
+}
+
+/* LEFT: Full Bleed Image Column */
+.card-icon-col {
+    width: 40%;
+    max-width: 450px;
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    background: #050508;
+}
+
+.slide-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0;
+    border: none;
+    background: none;
+    filter: none;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.service-card-inner:hover .slide-icon-img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* RIGHT: Content Column */
+.card-content-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    padding: 40px 45px;
+    overflow-y: auto; /* Guarantee content is accessible on short screens */
+    overflow-x: hidden;
+    min-width: 0;
+}
+
+/* Custom scrollbar for content column if needed */
+.card-content-col::-webkit-scrollbar {
+    width: 6px;
+}
+.card-content-col::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+}
+.card-content-col::-webkit-scrollbar-thumb {
+    background: rgba(0, 242, 255, 0.2);
+    border-radius: 10px;
+}
+.card-content-col::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 242, 255, 0.4);
+}
+
+.service-title-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 0;
+}
+
+.service-num {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1rem, 1.3vw, 1.3rem);
+    font-weight: 800;
+    color: var(--accent-purple);
+    text-shadow: 0 0 10px rgba(188, 0, 255, 0.4);
+    flex-shrink: 0;
+}
+
+.card-content-col h3 {
+    font-size: clamp(1.1rem, 2vw, 1.7rem);
+    line-height: 1.2;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.service-short-desc {
+    font-size: clamp(0.78rem, 0.9vw, 0.92rem);
+    color: var(--text-dim);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Grid of Facilities */
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px 12px;
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0 0;
+}
+
+.facilities-grid li {
+    font-size: clamp(0.67rem, 0.78vw, 0.82rem);
+    color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 8px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.facilities-grid li:hover {
+    background: rgba(0, 242, 255, 0.06);
+    border-color: rgba(0, 242, 255, 0.2);
+    transform: translateX(4px);
+}
+
+.facilities-grid li .bullet {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 8px var(--accent-cyan);
+    flex-shrink: 0;
+    font-size: 0.7rem;
+}
+
+/* ==========================================================================
+   Mobile & Tablet Responsiveness for New Layouts
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .service-card-inner {
+        height: 70vh;
+        min-height: 400px;
+        max-height: 600px;
+    }
+    .card-icon-col {
+        width: 35%;
+        max-width: none;
+    }
+    .card-content-col {
+        padding: 25px 30px;
+        gap: 10px;
+    }
+    .card-content-col h3 {
+        font-size: clamp(1rem, 1.8vw, 1.4rem);
+    }
+    .service-short-desc {
+        font-size: clamp(0.72rem, 0.82vw, 0.85rem);
+    }
+    .facilities-grid {
+        gap: 3px 8px;
+    }
+    .facilities-grid li {
+        font-size: clamp(0.6rem, 0.7vw, 0.74rem);
+        padding: 3px 6px;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-pin-container {
+        height: auto !important;
+        overflow: visible !important;
+        padding: 60px 20px !important;
+    }
+    
+    .horizontal-scroll-wrapper {
+        display: flex;
+        flex-direction: column !important;
+        height: auto !important;
+        width: 100% !important;
+        transform: none !important;
+    }
+    
+    .service-slide {
+        width: 100% !important;
+        height: auto !important;
+        padding: 30px 0 !important;
+        box-sizing: border-box;
+    }
+    
+    .title-slide {
+        padding-left: 0 !important;
+        min-height: auto;
+    }
+    
+    .slide-title {
+        font-size: 2.5rem !important;
+    }
+    
+    .service-card-inner {
+        max-height: none !important;
+        min-height: auto !important;
+        border-radius: 20px !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        height: auto !important;
+        overflow: hidden !important;
+    }
+    
+    .card-icon-col {
+        width: 100% !important;
+        height: 200px !important;
+        aspect-ratio: unset !important;
+    }
+
+    .slide-icon-img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        border-radius: 0 !important;
+    }
+    
+    .card-content-col {
+        width: 100% !important;
+        gap: 12px !important;
+        padding: 20px !important;
+        overflow-y: visible !important;
+    }
+
+    .service-title-wrap {
+        gap: 8px !important;
+    }
+
+    .service-num {
+        font-size: 1rem !important;
+    }
+    
+    .card-content-col h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .service-short-desc {
+        font-size: 0.9rem !important;
+    }
+    
+    .facilities-grid, .facilities-grid.cols-2 {
+        width: 100% !important;
+        grid-template-columns: 1fr !important;
+        gap: 6px !important;
+    }
+    
+    .facilities-grid li {
+        font-size: 0.85rem !important;
+        padding: 7px 10px !important;
+        white-space: normal !important;
+    }
+    
+    .about-section {
+        padding: 60px 15px !important;
+    }
+    
+    .vision-block, .why-choose-block {
+        padding: 40px 20px !important;
+        border-radius: 16px !important;
+    }
+    
+    .vision-quote {
+        font-size: 1.5rem !important;
+        text-align: left;
+    }
+    
+    .why-choose-lead {
+        font-size: 1.4rem !important;
+    }
+    
+    .why-choose-body {
+        font-size: 1rem !important;
+    }
+}
+

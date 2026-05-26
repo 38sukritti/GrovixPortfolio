@@ -8,6 +8,8 @@
     <!-- GSAP for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Lenis for smooth scrolling -->
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
     <!-- Three.js for 3D background -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
@@ -42,60 +44,217 @@
             </div>
         </section>
 
-        <!-- Vision Section -->
-        <section id="vision" class="vision">
-            <div class="glass" style="padding: 100px; text-align: center;">
-                <h2 class="section-title">The <span>Vision</span></h2>
-                <p style="font-size: 1.8rem; line-height: 1.4; color: #fff;">"In a world of noise, we create silence. The silence of your competitors as you dominate the market."</p>
+        <!-- About Section (Vision & Why Choose Us) -->
+        <section id="about" class="about-section">
+            <div class="about-container">
+                <div class="vision-block glass reveal">
+                    <h2 class="section-title">The <span>Vision</span></h2>
+                    <p class="vision-quote select-glow">"In a world of noise, we create silence. The silence of your competitors as you dominate the market."</p>
+                </div>
+                
+                <div class="why-choose-block glass reveal">
+                    <h2 class="section-title">Why Choose <span>Grovix Studio?</span></h2>
+                    <div class="why-choose-content">
+                        <h3 class="why-choose-lead select-glow">Because your brand deserves more than just <span>“content.”</span></h3>
+                        <p class="why-choose-body select-glow">At Grovix Studio, we blend strategy, creativity, and performance to build brands that actually stand out. From scroll-stopping visuals to high-converting campaigns, every move we make is focused on growth, attention, and real results. We don’t just market brands — we help them become unforgettable.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services">
-            <h2 class="section-title">Growth <span>Stack</span></h2>
-            <div class="services-grid" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="service-card glass glass-hover">
-                    <div>
-                        <div class="icon">🚀</div>
-                        <h3>Performance<br>Marketing</h3>
+        <!-- Services Section (Horizontal Scroll Track) -->
+        <section id="services" class="services-pin-container">
+            <div class="horizontal-scroll-wrapper">
+                <!-- Slide 0: Title Slide -->
+                <div class="service-slide title-slide">
+                    <div class="service-slide-content">
+                        <span class="slide-subtitle">OUR CAPABILITIES</span>
+                        <h2 class="slide-title">Growth<br><span>Stack</span></h2>
+                        <p class="slide-desc">We build infrastructure for market leaders. Scroll to explore our specialized execution units designed for aggressive expansion.</p>
+                        <div class="scroll-indicator">
+                            <span>Scroll down to explore</span>
+                            <div class="indicator-arrow">→</div>
+                        </div>
                     </div>
-                    <p>Meta, Google, and TikTok ads engineered for maximum ROAS. We don't spend; we invest. Our strategies are built on deep data analysis and aggressive scaling tactics.</p>
                 </div>
-                <div class="service-card glass glass-hover">
-                    <div>
-                        <div class="icon">🎨</div>
-                        <h3>Brand<br>Architecture</h3>
+                
+                <!-- Slide 1: Graphic Designing -->
+                <div class="service-slide">
+                    <div class="service-card-inner glass">
+                        <div class="card-icon-col">
+                            <img src="graphic_design_icon.png" class="slide-icon-img" alt="Graphic Design">
+                        </div>
+                        <div class="card-content-col">
+                            <div class="service-title-wrap">
+                                <span class="service-num">01</span>
+                                <h3>Graphic Designing</h3>
+                            </div>
+                            <p class="service-short-desc">Professional and creative designs that help businesses build a strong visual identity and improve brand recognition.</p>
+                            <ul class="facilities-grid">
+                                <li><span class="bullet">✦</span> Logo Design & Brand Identity</li>
+                                <li><span class="bullet">✦</span> Social Media Creatives</li>
+                                <li><span class="bullet">✦</span> Banner & Poster Design</li>
+                                <li><span class="bullet">✦</span> Ad Creatives (All Platforms)</li>
+                                <li><span class="bullet">✦</span> Business Cards & Stationery</li>
+                                <li><span class="bullet">✦</span> Brochure & Flyer Design</li>
+                                <li><span class="bullet">✦</span> Packaging Design</li>
+                                <li><span class="bullet">✦</span> Website & App UI Design</li>
+                                <li><span class="bullet">✦</span> Infographics Design</li>
+                                <li><span class="bullet">✦</span> Presentation (PPT) Design</li>
+                            </ul>
+                        </div>
                     </div>
-                    <p>High-end visual identity and web experiences that command authority. We build brands that people don't just follow—they worship. Design as a weapon for dominance.</p>
                 </div>
-                <div class="service-card glass glass-hover">
-                    <div>
-                        <div class="icon">⚡</div>
-                        <h3>Sales<br>Engines</h3>
+
+                <!-- Slide 2: Video Editing -->
+                <div class="service-slide">
+                    <div class="service-card-inner glass">
+                        <div class="card-icon-col">
+                            <img src="video_editing_icon.png" class="slide-icon-img" alt="Video Editing">
+                        </div>
+                        <div class="card-content-col">
+                            <div class="service-title-wrap">
+                                <span class="service-num">02</span>
+                                <h3>Video Editing</h3>
+                            </div>
+                            <p class="service-short-desc">Professional video editing services designed to create engaging and high-quality content for brands and businesses.</p>
+                            <ul class="facilities-grid">
+                                <li><span class="bullet">✦</span> Video Cutting & Trimming</li>
+                                <li><span class="bullet">✦</span> Color Correction & Grading</li>
+                                <li><span class="bullet">✦</span> Transitions & Effects</li>
+                                <li><span class="bullet">✦</span> Motion Graphics & Animations</li>
+                                <li><span class="bullet">✦</span> Text Overlays & Subtitles</li>
+                                <li><span class="bullet">✦</span> Sound Design & Audio Enhancement</li>
+                                <li><span class="bullet">✦</span> Background Music Integration</li>
+                                <li><span class="bullet">✦</span> Reels & Short-form Video Editing</li>
+                                <li><span class="bullet">✦</span> Ad Video Creatives</li>
+                                <li><span class="bullet">✦</span> Green Screen Editing</li>
+                            </ul>
+                        </div>
                     </div>
-                    <p>Automated CRM systems and cold outreach that fill your calendar while you sleep. We handle the prospecting so your team focuses exclusively on closing.</p>
                 </div>
-                <div class="service-card glass glass-hover">
-                    <div>
-                        <div class="icon">📱</div>
-                        <h3>Content<br>Domination</h3>
+
+                <!-- Slide 3: Website Development -->
+                <div class="service-slide">
+                    <div class="service-card-inner glass">
+                        <div class="card-icon-col">
+                            <img src="web_dev_icon.png" class="slide-icon-img" alt="Website Development">
+                        </div>
+                        <div class="card-content-col">
+                            <div class="service-title-wrap">
+                                <span class="service-num">03</span>
+                                <h3>Website Development</h3>
+                            </div>
+                            <p class="service-short-desc">Modern and optimized websites built to improve user experience, online presence, and conversions.</p>
+                            <ul class="facilities-grid">
+                                <li><span class="bullet">✦</span> Custom Website Design</li>
+                                <li><span class="bullet">✦</span> Responsive (Mobile-Friendly) Development</li>
+                                <li><span class="bullet">✦</span> UI/UX Optimization</li>
+                                <li><span class="bullet">✦</span> Website Speed Optimization</li>
+                                <li><span class="bullet">✦</span> SEO-Friendly Structure</li>
+                                <li><span class="bullet">✦</span> CMS Integration (WordPress, etc.)</li>
+                                <li><span class="bullet">✦</span> E-commerce Website Development</li>
+                                <li><span class="bullet">✦</span> Payment Gateway Integration</li>
+                                <li><span class="bullet">✦</span> Landing Page Development</li>
+                                <li><span class="bullet">✦</span> Website Maintenance & Support</li>
+                            </ul>
+                        </div>
                     </div>
-                    <p>Short-form cinematic content designed to go viral and build massive brand equity. We turn your brand into a media powerhouse.</p>
                 </div>
-                <div class="service-card glass glass-hover">
-                    <div>
-                        <div class="icon">📈</div>
-                        <h3>Conversion<br>Optimization</h3>
+
+                <!-- Slide 4: Paid Ads Management -->
+                <div class="service-slide ads-slide">
+                    <div class="service-card-inner glass">
+                        <div class="card-icon-col">
+                            <img src="paid_ads_icon.png" class="slide-icon-img" alt="Paid Ads Management">
+                        </div>
+                        <div class="card-content-col">
+                            <div class="service-title-wrap">
+                                <span class="service-num">04</span>
+                                <h3>Paid Ads Management</h3>
+                            </div>
+                            <p class="service-short-desc">Complete paid advertising solutions across multiple platforms to generate leads, sales, reach, and business growth.</p>
+                            <ul class="facilities-grid">
+                                <li><span class="bullet">✦</span> Meta Ads (Facebook & Instagram)</li>
+                                <li><span class="bullet">✦</span> Google Ads</li>
+                                <li><span class="bullet">✦</span> LinkedIn Ads</li>
+                                <li><span class="bullet">✦</span> Snapchat Ads</li>
+                                <li><span class="bullet">✦</span> Twitter/X Ads</li>
+                                <li><span class="bullet">✦</span> Pinterest Ads</li>
+                                <li><span class="bullet">✦</span> Audience Research & Targeting</li>
+                                <li><span class="bullet">✦</span> Campaign Strategy & Funnel Planning</li>
+                                <li><span class="bullet">✦</span> Ad Creative & Copywriting</li>
+                                <li><span class="bullet">✦</span> Campaign Setup & Management</li>
+                                <li><span class="bullet">✦</span> Pixel & Conversion Tracking</li>
+                                <li><span class="bullet">✦</span> Retargeting Campaigns</li>
+                                <li><span class="bullet">✦</span> Lead Generation Campaigns</li>
+                                <li><span class="bullet">✦</span> A/B Testing & Optimization</li>
+                                <li><span class="bullet">✦</span> Performance Monitoring & Scaling</li>
+                            </ul>
+                        </div>
                     </div>
-                    <p>Landing page engineering and funnel optimization that turns traffic into revenue. We squeeze every drop of profit from your traffic.</p>
                 </div>
-                <div class="service-card glass glass-hover">
-                    <div>
-                        <div class="icon">📧</div>
-                        <h3>Cold Email<br>Systems</h3>
+
+                <!-- Slide 5: Social Media Management -->
+                <div class="service-slide social-slide">
+                    <div class="service-card-inner glass">
+                        <div class="card-icon-col">
+                            <img src="social_media_icon.png" class="slide-icon-img" alt="Social Media Management">
+                        </div>
+                        <div class="card-content-col">
+                            <div class="service-title-wrap">
+                                <span class="service-num">05</span>
+                                <h3>Social Media Management</h3>
+                            </div>
+                            <p class="service-short-desc">Complete social media management services to grow your brand presence, engagement, and audience across all major platforms.</p>
+                            <ul class="facilities-grid">
+                                <li><span class="bullet">✦</span> Instagram Management</li>
+                                <li><span class="bullet">✦</span> Facebook Management</li>
+                                <li><span class="bullet">✦</span> LinkedIn Management</li>
+                                <li><span class="bullet">✦</span> Twitter/X Management</li>
+                                <li><span class="bullet">✦</span> Pinterest Management</li>
+                                <li><span class="bullet">✦</span> Snapchat Management</li>
+                                <li><span class="bullet">✦</span> Content Creation (Posts, Reels, Carousels)</li>
+                                <li><span class="bullet">✦</span> Caption Writing</li>
+                                <li><span class="bullet">✦</span> Content Scheduling & Posting</li>
+                                <li><span class="bullet">✦</span> Community Management</li>
+                                <li><span class="bullet">✦</span> Hashtag Strategy</li>
+                                <li><span class="bullet">✦</span> Audience Engagement</li>
+                                <li><span class="bullet">✦</span> Monthly Content Planning</li>
+                                <li><span class="bullet">✦</span> Performance Monitoring</li>
+                            </ul>
+                        </div>
                     </div>
-                    <p>Custom outreach infrastructure with 99% deliverability. Reach decision-makers directly and predictably with AI-personalized sequences.</p>
                 </div>
+
+                <!-- Slide 6: Analytics & Reporting -->
+                <div class="service-slide">
+                    <div class="service-card-inner glass">
+                        <div class="card-icon-col">
+                            <img src="analytics_icon.png" class="slide-icon-img" alt="Analytics & Reporting">
+                        </div>
+                        <div class="card-content-col">
+                            <div class="service-title-wrap">
+                                <span class="service-num">06</span>
+                                <h3>Analytics & Reporting</h3>
+                            </div>
+                            <p class="service-short-desc">Data-driven reporting and analytics solutions to measure performance and improve marketing results effectively.</p>
+                            <ul class="facilities-grid">
+                                <li><span class="bullet">✦</span> Data Tracking Setup (Pixel, GA4, etc.)</li>
+                                <li><span class="bullet">✦</span> KPI Definition & Monitoring</li>
+                                <li><span class="bullet">✦</span> Dashboard Creation (Real-Time)</li>
+                                <li><span class="bullet">✦</span> Campaign Performance Analysis</li>
+                                <li><span class="bullet">✦</span> Audience Behavior Insights</li>
+                                <li><span class="bullet">✦</span> Conversion Tracking & Attribution</li>
+                                <li><span class="bullet">✦</span> ROI & ROAS Analysis</li>
+                                <li><span class="bullet">✦</span> A/B Testing Analysis</li>
+                                <li><span class="bullet">✦</span> Data Visualization & Insights</li>
+                                <li><span class="bullet">✦</span> Monthly & Weekly Reporting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -231,26 +390,26 @@
             <h2 class="section-title">Grovix <span>Cinema</span></h2>
             <div class="portfolio-grid">
                 <div class="portfolio-item glass">
-                    <video src="Grovix portfolio/REEL DESIGN.mp4" loop muted playsinline></video>
+                    <video src="Grovix portfolio/REEL DESIGN.mp4" loop muted playsinline autoplay></video>
                     <div class="item-overlay">
                         <h3>Reel Design</h3>
                         <button class="btn-primary" style="padding: 10px 20px; font-size: 0.7rem;">Play</button>
                     </div>
                 </div>
                 <div class="portfolio-item glass">
-                    <video src="Grovix portfolio/reel comming soon.mp4" loop muted playsinline></video>
+                    <video src="Grovix portfolio/reel comming soon.mp4" loop muted playsinline autoplay></video>
                     <div class="item-overlay">
                         <h3>Coming Soon</h3>
                     </div>
                 </div>
                 <div class="portfolio-item glass">
-                    <video src="Grovix portfolio/download_20260420_125604_0000.mp4" loop muted playsinline></video>
+                    <video src="Grovix portfolio/download_20260420_125604_0000.mp4" loop muted playsinline autoplay></video>
                     <div class="item-overlay">
                         <h3>Motion Story</h3>
                     </div>
                 </div>
                 <div class="portfolio-item glass">
-                    <video src="Grovix portfolio/IMG_6492.MP4" loop muted playsinline></video>
+                    <video src="Grovix portfolio/IMG_6492.MP4" loop muted playsinline autoplay></video>
                     <div class="item-overlay">
                         <h3>Behind The Scenes</h3>
                     </div>
@@ -263,13 +422,14 @@
             <div class="glass" style="padding: 80px; text-align: center;">
                 <h2 class="section-title">Ready for <span>War?</span></h2>
                 <p style="margin-bottom: 50px;">Scale your business to the heights it deserves. Limited slots available for partners.</p>
-                <a href="mailto:hello@grovixstudio.com" class="btn-primary">Apply Now</a>
+                <a href="mailto:grovixstudios.official@gmail.com" class="btn-primary">Apply Now</a>
             </div>
         </section>
     </main>
 
     <footer style="padding: 60px; text-align: center; border-top: 1px solid var(--glass-border);">
         <div class="logo" style="margin-bottom: 20px;">GROVIX <span>STUDIO</span></div>
+        <p style="color: var(--text-dim); margin-bottom: 10px;">grovixstudios.official@gmail.com</p>
         <p style="color: var(--text-dim);">&copy; 2024 GROVIX STUDIO. BORN TO DOMINATE.</p>
     </footer>
 
